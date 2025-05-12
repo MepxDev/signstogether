@@ -3,422 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SignStogether - Learn Sign Language in Roblox</title>
-    <style>
-        /* Global Styles */
-        :root {
-            --primary-color: #00a2ff;
-            --secondary-color: #ff6b00;
-            --dark-color: #2c3e50;
-            --light-color: #ecf0f1;
-            --success-color: #2ecc71;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        a {
-            text-decoration: none;
-            color: var(--primary-color);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: var(--primary-color);
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-        
-        .btn:hover {
-            background: #0088cc;
-            transform: translateY(-2px);
-        }
-        
-        .btn-secondary {
-            background: var(--secondary-color);
-        }
-        
-        .btn-secondary:hover {
-            background: #cc5500;
-        }
-        
-        /* Header Styles */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo img {
-            height: 40px;
-            margin-right: 10px;
-        }
-        
-        .logo h1 {
-            font-size: 24px;
-            color: var(--dark-color);
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
-            color: var(--dark-color);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-        
-        .mobile-menu {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 150px 0 80px;
-            background: linear-gradient(135deg, #00a2ff, #00ffaa);
-            color: white;
-            text-align: center;
-        }
-        
-        .hero h2 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        
-        .hero p {
-            font-size: 20px;
-            max-width: 800px;
-            margin: 0 auto 30px;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background-color: white;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .section-title h3 {
-            font-size: 36px;
-            color: var(--dark-color);
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature-card {
-            background: var(--light-color);
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .feature-icon {
-            font-size: 50px;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-        
-        .feature-card h4 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: var(--dark-color);
-        }
-        
-        /* Game Preview Section */
-        .game-preview {
-            padding: 80px 0;
-            background-color: #f5f5f5;
-        }
-        
-        .preview-container {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            flex-wrap: wrap;
-        }
-        
-        .preview-text {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .preview-text h3 {
-            font-size: 36px;
-            color: var(--dark-color);
-            margin-bottom: 20px;
-        }
-        
-        .preview-image {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-        }
-        
-        .preview-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Testimonials */
-        .testimonials {
-            padding: 80px 0;
-            background-color: white;
-        }
-        
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .testimonial-card {
-            background: var(--light-color);
-            padding: 30px;
-            border-radius: 10px;
-            position: relative;
-        }
-        
-        .testimonial-card:before {
-            content: '"';
-            font-size: 80px;
-            color: rgba(0, 0, 0, 0.1);
-            position: absolute;
-            top: 10px;
-            left: 20px;
-        }
-        
-        .testimonial-content {
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .testimonial-author img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 15px;
-            object-fit: cover;
-        }
-        
-        .author-info h5 {
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-        
-        .author-info p {
-            font-size: 14px;
-            color: #777;
-        }
-        
-        /* CTA Section */
-        .cta {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #ff6b00, #ff0084);
-            color: white;
-            text-align: center;
-        }
-        
-        .cta h3 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-        
-        .cta p {
-            font-size: 20px;
-            max-width: 800px;
-            margin: 0 auto 30px;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 50px 0 20px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-column h4 {
-            font-size: 20px;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-column h4:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50px;
-            height: 2px;
-            background: var(--primary-color);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: #bbb;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: white;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-links a {
-            color: white;
-            font-size: 20px;
-            transition: color 0.3s;
-        }
-        
-        .social-links a:hover {
-            color: var(--primary-color);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #bbb;
-            font-size: 14px;
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .nav-links li {
-                margin: 10px 0;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .hero h2 {
-                font-size: 36px;
-            }
-            
-            .hero p {
-                font-size: 18px;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .section-title h3 {
-                font-size: 30px;
-            }
-        }
-    </style>
+    <title>SignsTogether - Learn ASL in Roblox</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Header -->
@@ -426,16 +13,16 @@
         <div class="container">
             <nav>
                 <div class="logo">
-                    <img src="https://via.placeholder.com/40" alt="SignStogether Logo">
-                    <h1>SignStogether</h1>
+                    <img src="assets/logo.png" alt="SignsTogether Logo">
+                    <h1>SignsTogether</h1>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#preview">Game Preview</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
+                    <li><a href="#preview"><i class="fas fa-gamepad"></i> Game</a></li>
+                    <li><a href="#testimonials"><i class="fas fa-comments"></i> Testimonials</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
                 </ul>
-                <div class="mobile-menu">☰</div>
+                <div class="mobile-menu"><i class="fas fa-bars"></i></div>
             </nav>
         </div>
     </header>
@@ -443,11 +30,29 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h2>Learn Sign Language in Roblox</h2>
-            <p>SignStogether is an immersive Roblox game that makes learning sign language fun and interactive. Join thousands of players who are learning ASL while having fun in a virtual world!</p>
+            <h2>Learn Sign Language in <span>Roblox</span></h2>
+            <p>The most fun way to learn American Sign Language with friends in the metaverse!</p>
             <div class="hero-buttons">
-                <a href="https://www.roblox.com/games/" class="btn">Play Now</a>
-                <a href="#features" class="btn btn-secondary">Learn More</a>
+                <a href="https://www.roblox.com/games/" class="btn play-btn">
+                    <i class="fab fa-roblox"></i> Play Now
+                </a>
+                <a href="#features" class="btn btn-secondary">
+                    <i class="fas fa-arrow-down"></i> Learn More
+                </a>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="25000">0</span>
+                    <span class="stat-label">Active Players</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="500">0</span>
+                    <span class="stat-label">ASL Signs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="100">0</span>
+                    <span class="stat-label">Countries</span>
+                </div>
             </div>
         </div>
     </section>
@@ -456,29 +61,11 @@
     <section class="features" id="features">
         <div class="container">
             <div class="section-title">
-                <h3>Why Learn With SignStogether?</h3>
+                <h3>Why Learn With SignsTogether?</h3>
+                <p>We make sign language learning accessible and fun for everyone</p>
             </div>
             <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🎮</div>
-                    <h4>Game-Based Learning</h4>
-                    <p>Learn through interactive games, challenges, and social interactions in the Roblox universe.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">👐</div>
-                    <h4>Real ASL Signs</h4>
-                    <p>Our game features accurate American Sign Language signs taught by certified instructors.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌎</div>
-                    <h4>Inclusive Community</h4>
-                    <p>Join a welcoming community of learners, deaf players, and sign language enthusiasts.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📈</div>
-                    <h4>Progress Tracking</h4>
-                    <p>Track your learning journey with in-game achievements and progress reports.</p>
-                </div>
+                <!-- Feature cards will be populated by JavaScript -->
             </div>
         </div>
     </section>
@@ -488,19 +75,29 @@
         <div class="container">
             <div class="preview-container">
                 <div class="preview-text">
-                    <h3>Experience Sign Language Like Never Before</h3>
-                    <p>SignStogether brings sign language learning to life in the Roblox metaverse. Our game features:</p>
-                    <ul style="margin: 20px 0 20px 20px;">
-                        <li style="margin-bottom: 10px;">Interactive lessons with 3D animated signs</li>
-                        <li style="margin-bottom: 10px;">Mini-games that reinforce your learning</li>
-                        <li style="margin-bottom: 10px;">Virtual meetups with deaf community members</li>
-                        <li style="margin-bottom: 10px;">Customizable avatar with signing animations</li>
-                        <li>Daily challenges to build your skills</li>
+                    <h3>Experience ASL Like Never Before</h3>
+                    <p>Our Roblox game features innovative learning tools:</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Interactive 3D sign animations</li>
+                        <li><i class="fas fa-check-circle"></i> Daily challenges and rewards</li>
+                        <li><i class="fas fa-check-circle"></i> Deaf community events</li>
+                        <li><i class="fas fa-check-circle"></i> Progress tracking</li>
+                        <li><i class="fas fa-check-circle"></i> Custom signing avatars</li>
                     </ul>
-                    <a href="https://www.roblox.com/games/" class="btn">Start Playing Today</a>
+                    <a href="https://www.roblox.com/games/" class="btn">
+                        <i class="fab fa-roblox"></i> Join Now - It's Free!
+                    </a>
                 </div>
                 <div class="preview-image">
-                    <img src="https://via.placeholder.com/600x400" alt="SignStogether Roblox Game Screenshot">
+                    <div class="game-carousel">
+                        <img src="assets/game1.jpg" alt="Game screenshot 1" class="active">
+                        <img src="assets/game2.jpg" alt="Game screenshot 2">
+                        <img src="assets/game3.jpg" alt="Game screenshot 3">
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -510,55 +107,27 @@
     <section class="testimonials" id="testimonials">
         <div class="container">
             <div class="section-title">
-                <h3>What Players Are Saying</h3>
+                <h3>What Our Community Says</h3>
+                <p>Hear from players, parents, and educators</p>
             </div>
             <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>I've tried many apps to learn ASL, but SignStogether is the first one that made it stick. Learning through games with friends is so much more effective!</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://via.placeholder.com/50" alt="User">
-                        <div class="author-info">
-                            <h5>Sarah M.</h5>
-                            <p>Age 14, Player since 2022</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>As a deaf player, I'm so happy to see a game that helps hearing people learn our language. The community is wonderful and very welcoming.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://via.placeholder.com/50" alt="User">
-                        <div class="author-info">
-                            <h5>James T.</h5>
-                            <p>Deaf Mentor in the game</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>My daughter has learned so much from this game. She can now have basic conversations in ASL and it's helped her make new friends too!</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://via.placeholder.com/50" alt="User">
-                        <div class="author-info">
-                            <h5>Lisa K.</h5>
-                            <p>Parent</p>
-                        </div>
-                    </div>
-                </div>
+                <!-- Testimonials will be populated by JavaScript -->
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta">
+    <!-- Newsletter Section -->
+    <section class="newsletter">
         <div class="container">
-            <h3>Ready to Start Your Sign Language Journey?</h3>
-            <p>Join thousands of players learning ASL in the most fun and interactive way possible.</p>
-            <a href="https://www.roblox.com/games/" class="btn">Play SignStogether Now</a>
+            <div class="newsletter-box">
+                <h3>Stay Updated</h3>
+                <p>Get notified about new features, events, and learning resources</p>
+                <form id="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+                <p class="form-note">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
         </div>
     </section>
 
@@ -567,13 +136,13 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h4>SignStogether</h4>
-                    <p>Making sign language learning accessible, fun, and social through the power of gaming.</p>
+                    <h4>SignsTogether</h4>
+                    <p>Making sign language learning accessible through gaming.</p>
                     <div class="social-links">
-                        <a href="#">⌚</a>
-                        <a href="#">📘</a>
-                        <a href="#">📸</a>
-                        <a href="#">🎮</a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-roblox"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
@@ -591,86 +160,25 @@
                         <li><a href="#">ASL Dictionary</a></li>
                         <li><a href="#">Learning Tips</a></li>
                         <li><a href="#">Deaf Culture</a></li>
-                        <li><a href="#">Accessibility Guide</a></li>
+                        <li><a href="#">Educator Resources</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>Contact</h4>
+                    <h4>Legal</h4>
                     <ul class="footer-links">
-                        <li><a href="mailto:hello@signstogether.com">hello@signstogether.com</a></li>
-                        <li><a href="#">Support</a></li>
-                        <li><a href="#">Partnerships</a></li>
-                        <li><a href="#">Feedback</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                        <li><a href="#">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 SignStogether. All rights reserved. Not affiliated with Roblox Corporation.</p>
+                <p>&copy; 2023 SignsTogether. Not affiliated with Roblox Corporation.</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Mobile Menu Toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    document.querySelector('.nav-links').classList.remove('active');
-                }
-            });
-        });
-
-        // Add shadow to header on scroll
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 10) {
-                header.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            }
-        });
-
-        // Simple animation for feature cards on scroll
-        const featureCards = document.querySelectorAll('.feature-card');
-        
-        function checkCards() {
-            featureCards.forEach(card => {
-                const cardPosition = card.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if (cardPosition < screenPosition) {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }
-            });
-        }
-        
-        // Set initial state
-        featureCards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'all 0.5s ease';
-        });
-        
-        window.addEventListener('scroll', checkCards);
-        window.addEventListener('load', checkCards);
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
