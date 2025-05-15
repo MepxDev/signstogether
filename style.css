@@ -102,6 +102,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 15px 0;
+    gap: 20px;
 }
 
 .logo {
@@ -124,6 +125,7 @@ nav {
     display: flex;
     list-style: none;
     gap: 30px;
+    margin-right: auto;
 }
 
 .nav-links a {
@@ -137,6 +139,59 @@ nav {
 
 .nav-links a:hover {
     color: var(--primary-color);
+}
+
+/* Auth Buttons */
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-roblox-connect {
+    background: #00a2ff;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.btn-roblox-connect:hover {
+    background: #0088cc;
+    transform: translateY(-2px);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 20px;
+    transition: var(--transition);
+}
+
+.user-profile:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+}
+
+.username {
+    font-weight: 600;
+    font-size: 14px;
 }
 
 .mobile-menu {
@@ -698,6 +753,10 @@ footer {
         margin: 15px 0;
     }
     
+    .auth-buttons {
+        display: none;
+    }
+    
     .mobile-menu {
         display: block;
     }
@@ -739,5 +798,10 @@ footer {
     
     .application-form {
         margin-top: 30px;
+    }
+    
+    .stats {
+        flex-direction: column;
+        gap: 20px;
     }
 }
