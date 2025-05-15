@@ -91,19 +91,19 @@ const testimonials = [
         content: "I've learned more ASL in two weeks with SignsTogether than I did in months with apps. The games make it so fun!",
         author: "Sarah M.",
         role: "Player, Age 14",
-        img: "assets/user1.jpg"
+        img: "assets/user.jpg"
     },
     {
         content: "As a Deaf educator, I'm impressed by how accurately this game teaches ASL. The community events are wonderful.",
         author: "James T.",
         role: "ASL Teacher",
-        img: "assets/user2.jpg"
+        img: "assets/user.jpg"
     },
     {
         content: "My students love using SignsTogether in class. It's the perfect way to make ASL learning engaging for kids.",
         author: "Ms. Rodriguez",
         role: "Elementary Teacher",
-        img: "assets/user3.jpg"
+        img: "assets/user.jpg"
     }
 ];
 
