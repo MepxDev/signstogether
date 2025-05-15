@@ -2,14 +2,93 @@
 const mobileMenuBtn = document.querySelector('.mobile-menu');
 const navLinks = document.querySelector('.nav-links');
 const featureGrid = document.querySelector('.features-grid');
-const testimonialGrid = document.querySelector('.testimonial-grid');
+const languagesGrid = document.querySelector('.languages-grid');
+const jobsList = document.querySelector('.jobs-list');
+const positionSelect = document.getElementById('position');
+const signLanguageSelect = document.getElementById('sign-language');
+const jobApplicationForm = document.getElementById('job-application-form');
+const applicationModal = document.getElementById('application-modal');
+const closeModalBtns = document.querySelectorAll('.close-modal, .modal-close-btn');
+const statNumbers = document.querySelectorAll('.stat-number');
 const gameImages = document.querySelectorAll('.game-carousel img');
 const prevBtn = document.querySelector('.carousel-prev');
 const nextBtn = document.querySelector('.carousel-next');
-const newsletterForm = document.getElementById('newsletter-form');
-const statNumbers = document.querySelectorAll('.stat-number');
 
-// Mobile Menu Toggle
+// Sign Languages Data
+const signLanguages = [
+    { code: "ASL", name: "American Sign Language", description: "Used in the United States and parts of Canada" },
+    { code: "BSL", name: "British Sign Language", description: "Used in the United Kingdom" },
+    { code: "CSL", name: "Chinese Sign Language", description: "Used in China" },
+    { code: "DGS", name: "Deutsche Gebärdensprache", description: "German Sign Language, used in Germany" },
+    { code: "IS", name: "International Sign", description: "A pidgin-like sign language used internationally" },
+    { code: "ISL", name: "Irish Sign Language", description: "Used in the Republic of Ireland and parts of Northern Ireland" },
+    { code: "JSL", name: "Japanese Sign Language", description: "Used in Japan" },
+    { code: "KSL", name: "Korean Sign Language", description: "Used in South Korea" },
+    { code: "LIS", name: "Lingua dei Segni Italiana", description: "Italian Sign Language" },
+    { code: "LSC", name: "Llengua de Signes Catalana", description: "Catalan Sign Language, used in Catalonia (Spain)" },
+    { code: "LSE", name: "Lengua de Signos Española", description: "Spanish Sign Language" },
+    { code: "LSF", name: "Langue des Signes Française", description: "French Sign Language" },
+    { code: "LSM", name: "Lengua de Señas Mexicana", description: "Mexican Sign Language" },
+    { code: "LSQ", name: "Langue des Signes Québécoise", description: "Quebec Sign Language, used in parts of Canada" },
+    { code: "NGT", name: "Nederlandse Gebarentaal", description: "Dutch Sign Language" },
+    { code: "PISL", name: "Pakistani Sign Language", description: "Used in Pakistan" },
+    { code: "RSL", name: "Russian Sign Language", description: "Used in Russia" },
+    { code: "SSL", name: "Swedish Sign Language", description: "Used in Sweden" }
+];
+
+// Job Openings Data
+const jobOpenings = [
+    {
+        title: "ASL Content Developer",
+        type: "Full-time",
+        location: "Remote",
+        description: "Create and review ASL learning content for our platform"
+    },
+    {
+        title: "Game Developer (Roblox)",
+        type: "Full-time",
+        location: "Remote",
+        description: "Implement new features and maintain our Roblox game"
+    },
+    {
+        title: "Sign Language Instructor",
+        type: "Part-time",
+        location: "Remote",
+        description: "Teach sign language through our virtual events"
+    },
+    {
+        title: "Community Manager",
+        type: "Full-time",
+        location: "Remote",
+        description: "Engage with our player community and organize events"
+    }
+];
+
+// Features Data
+const features = [
+    {
+        icon: '<i class="fas fa-gamepad"></i>',
+        title: "Game-Based Learning",
+        description: "Learn through interactive games and challenges in the Roblox universe with friends."
+    },
+    {
+        icon: '<i class="fas fa-hands"></i>',
+        title: "Accurate Signs",
+        description: "All signs are verified by Deaf educators and native sign language users."
+    },
+    {
+        icon: '<i class="fas fa-globe"></i>',
+        title: "19 Languages",
+        description: "Learn from the world's most used sign languages in one platform."
+    },
+    {
+        icon: '<i class="fas fa-chart-line"></i>',
+        title: "Progress Tracking",
+        description: "Track your learning with achievements and personalized reports."
+    }
+];
+
+// Initialize Mobile Menu
 mobileMenuBtn.addEventListener('click', () => {
     navLinks.classList.toggle('active');
     mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
@@ -49,29 +128,41 @@ window.addEventListener('scroll', () => {
         '0 4px 15px rgba(0, 0, 0, 0.1)' : 'none';
 });
 
-// Features Data
-const features = [
-    {
-        icon: '<i class="fas fa-gamepad"></i>',
-        title: 'Game-Based Learning',
-        description: 'Learn through interactive games and challenges in the Roblox universe with friends.'
-    },
-    {
-        icon: '<i class="fas fa-hands"></i>',
-        title: 'Accurate ASL Signs',
-        description: 'All signs are verified by Deaf educators and native ASL users.'
-    },
-    {
-        icon: '<i class="fas fa-users"></i>',
-        title: 'Inclusive Community',
-        description: 'Join a welcoming space with learners, Deaf players, and ASL mentors.'
-    },
-    {
-        icon: '<i class="fas fa-chart-line"></i>',
-        title: 'Progress Tracking',
-        description: 'Track your learning with achievements and personalized reports.'
-    }
-];
+// Populate Languages
+signLanguages.forEach(lang => {
+    const langCard = document.createElement('div');
+    langCard.className = 'language-card';
+    langCard.innerHTML = `
+        <h4>${lang.name} <span>${lang.code}</span></h4>
+        <p>${lang.description}</p>
+    `;
+    languagesGrid.appendChild(langCard);
+});
+
+// Populate Job Openings
+jobOpenings.forEach(job => {
+    const jobItem = document.createElement('li');
+    jobItem.innerHTML = `
+        <h5>${job.title}</h5>
+        <p><strong>${job.type}</strong> • ${job.location}</p>
+        <p>${job.description}</p>
+    `;
+    jobsList.appendChild(jobItem);
+    
+    // Add to select dropdown
+    const option = document.createElement('option');
+    option.value = job.title;
+    option.textContent = `${job.title} (${job.type})`;
+    positionSelect.appendChild(option);
+});
+
+// Populate Sign Language Select
+signLanguages.forEach(lang => {
+    const option = document.createElement('option');
+    option.value = lang.code;
+    option.textContent = `${lang.name} (${lang.code})`;
+    signLanguageSelect.appendChild(option);
+});
 
 // Populate Features
 features.forEach(feature => {
@@ -85,45 +176,43 @@ features.forEach(feature => {
     featureGrid.appendChild(featureCard);
 });
 
-// Testimonials Data
-const testimonials = [
-    {
-        content: "I've learned more ASL in two weeks with SignsTogether than I did in months with apps. The games make it so fun!",
-        author: "Sarah M.",
-        role: "Player, Age 14",
-        img: "assets/user.jpg"
-    },
-    {
-        content: "As a Deaf educator, I'm impressed by how accurately this game teaches ASL. The community events are wonderful.",
-        author: "James T.",
-        role: "ASL Teacher",
-        img: "assets/user.jpg"
-    },
-    {
-        content: "My students love using SignsTogether in class. It's the perfect way to make ASL learning engaging for kids.",
-        author: "Ms. Rodriguez",
-        role: "Elementary Teacher",
-        img: "assets/user.jpg"
-    }
-];
+// Job Application Form Submission
+jobApplicationForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Form data collection
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        position: document.getElementById('position').value,
+        signLanguages: Array.from(document.getElementById('sign-language').selectedOptions)
+            .map(option => option.value),
+        coverLetter: document.getElementById('cover-letter').value
+    };
+    
+    // In a real app, you would send this to your server
+    console.log('Job Application Submitted:', formData);
+    
+    // Show success modal
+    applicationModal.classList.add('active');
+    
+    // Reset form
+    jobApplicationForm.reset();
+});
 
-// Populate Testimonials
-testimonials.forEach(testimonial => {
-    const testimonialCard = document.createElement('div');
-    testimonialCard.className = 'testimonial-card';
-    testimonialCard.innerHTML = `
-        <div class="testimonial-content">
-            <p>${testimonial.content}</p>
-        </div>
-        <div class="testimonial-author">
-            <img src="${testimonial.img}" alt="${testimonial.author}">
-            <div class="author-info">
-                <h5>${testimonial.author}</h5>
-                <p>${testimonial.role}</p>
-            </div>
-        </div>
-    `;
-    testimonialGrid.appendChild(testimonialCard);
+// Close Modal
+closeModalBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        applicationModal.classList.remove('active');
+    });
+});
+
+// Close modal when clicking outside
+window.addEventListener('click', (e) => {
+    if (e.target === applicationModal) {
+        applicationModal.classList.remove('active');
+    }
 });
 
 // Game Carousel
@@ -182,41 +271,21 @@ function animateStats() {
     });
 }
 
-// Newsletter Form
-newsletterForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = newsletterForm.querySelector('input').value;
-    
-    // Here you would typically send the email to your server
-    console.log('Subscribed email:', email);
-    
-    // Show success message
-    alert('Thanks for subscribing! We\'ll keep you updated on new features and events.');
-    newsletterForm.reset();
-});
-
-// Intersection Observer for animations
-const observerOptions = {
-    threshold: 0.1
-};
-
+// Initialize stats animation when scrolled into view
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            if (entry.target.classList.contains('stats')) {
-                animateStats();
-            }
-            entry.target.classList.add('animated');
+        if (entry.isIntersecting && entry.target.classList.contains('stats')) {
+            animateStats();
+            observer.unobserve(entry.target);
         }
     });
-}, observerOptions);
+}, { threshold: 0.1 });
 
-// Observe elements that should animate
-document.querySelectorAll('.feature-card, .testimonial-card, .stats').forEach(el => {
+document.querySelectorAll('.stats').forEach(el => {
     observer.observe(el);
 });
 
-// Initialize
+// Initialize first image
 document.addEventListener('DOMContentLoaded', () => {
     showImage(0);
 });
