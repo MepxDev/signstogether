@@ -4,9 +4,7 @@
 ├── main.js
 └── /assets
     ├── logo.png
+    ├── default-avatar.jpg
     ├── game1.jpg
     ├── game2.jpg
-    ├── game3.jpg
-    ├── user1.jpg
-    ├── user2.jpg
-    └── user3.jpg
+    └── game3.jpg
