@@ -220,9 +220,54 @@ nav {
     opacity: 0.9;
 }
 
+/* Languages Section */
+.languages {
+    background-color: #f9f9f9;
+}
+
+.languages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.language-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    border-left: 4px solid var(--primary-color);
+}
+
+.language-card:hover {
+    transform: translateY(-5px);
+}
+
+.language-card h4 {
+    color: var(--dark-color);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.language-card h4 span {
+    font-size: 14px;
+    background: var(--light-color);
+    padding: 3px 8px;
+    border-radius: 20px;
+    color: var(--dark-color);
+}
+
+.language-card p {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
 /* Features Section */
 .features {
-    background-color: var(--white);
+    background-color: white;
 }
 
 .features-grid {
@@ -368,115 +413,175 @@ nav {
     transform: scale(1.1);
 }
 
-/* Testimonials Section */
-.testimonials {
-    background-color: var(--white);
+/* Careers Section */
+.careers {
+    background-color: white;
 }
 
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.testimonial-card {
-    background: var(--bg-color);
-    padding: 30px;
-    border-radius: 10px;
-    position: relative;
-    box-shadow: var(--box-shadow);
-}
-
-.testimonial-card:before {
-    content: '"';
-    font-size: 80px;
-    color: rgba(0, 0, 0, 0.1);
-    position: absolute;
-    top: 10px;
-    left: 20px;
-    font-family: serif;
-    line-height: 1;
-}
-
-.testimonial-content {
-    margin-bottom: 20px;
-    font-style: italic;
-    position: relative;
-    z-index: 1;
-    font-size: 16px;
-}
-
-.testimonial-author {
+.careers-content {
     display: flex;
-    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
-.testimonial-author img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 15px;
-    object-fit: cover;
-    border: 3px solid var(--primary-color);
+.careers-text {
+    flex: 1;
+    min-width: 300px;
 }
 
-.author-info h5 {
+.careers-text h4 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--dark-color);
+}
+
+.careers-text p {
+    margin-bottom: 20px;
+}
+
+.current-openings {
+    margin-top: 30px;
+}
+
+.jobs-list {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.jobs-list li {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    transition: var(--transition);
+}
+
+.jobs-list li:hover {
+    background: #f9f9f9;
+}
+
+.jobs-list li h5 {
     font-size: 18px;
+    color: var(--primary-color);
     margin-bottom: 5px;
 }
 
-.author-info p {
+.jobs-list li p {
     font-size: 14px;
     color: var(--text-light);
 }
 
-/* Newsletter Section */
-.newsletter {
-    background: linear-gradient(135deg, #ff6b00, #ff0084);
-    color: var(--white);
-    text-align: center;
+.application-form {
+    flex: 1;
+    min-width: 300px;
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
 }
 
-.newsletter-box {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 50px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+.application-form h4 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--dark-color);
 }
 
-.newsletter-box h3 {
-    font-size: 28px;
-    margin-bottom: 15px;
+.form-group {
+    margin-bottom: 20px;
 }
 
-.newsletter-box p {
-    margin-bottom: 25px;
-    opacity: 0.9;
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--dark-color);
 }
 
-.newsletter form {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 162, 255, 0.1);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    align-items: center;
     justify-content: center;
 }
 
-.newsletter input {
-    flex: 1;
-    min-width: 200px;
-    padding: 15px 20px;
-    border: none;
-    border-radius: 50px;
-    font-size: 16px;
+.modal.active {
+    display: flex;
 }
 
-.form-note {
-    font-size: 14px;
-    margin-top: 15px;
-    opacity: 0.7;
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-light);
+}
+
+.success-icon {
+    font-size: 60px;
+    color: var(--success-color);
+    margin-bottom: 20px;
+}
+
+.modal h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: var(--dark-color);
+}
+
+.modal p {
+    margin-bottom: 25px;
+    color: var(--text-light);
+}
+
+.modal-close-btn {
+    background: var(--primary-color);
+    color: white;
 }
 
 /* Footer */
@@ -628,15 +733,11 @@ footer {
         min-width: 100%;
     }
     
-    .newsletter-box {
-        padding: 30px 20px;
-    }
-    
-    .newsletter form {
+    .careers-content {
         flex-direction: column;
     }
     
-    .newsletter input, .newsletter button {
-        width: 100%;
+    .application-form {
+        margin-top: 30px;
     }
 }
