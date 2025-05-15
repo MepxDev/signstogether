@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SignsTogether - Learn ASL in Roblox</title>
+    <title>SignsTogether - Learn 19 Sign Languages in Roblox</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -17,10 +17,10 @@
                     <h1>SignsTogether</h1>
                 </div>
                 <ul class="nav-links">
+                    <li><a href="#languages"><i class="fas fa-language"></i> Languages</a></li>
                     <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
                     <li><a href="#preview"><i class="fas fa-gamepad"></i> Game</a></li>
-                    <li><a href="#testimonials"><i class="fas fa-comments"></i> Testimonials</a></li>
-                    <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="#careers"><i class="fas fa-briefcase"></i> Careers</a></li>
                 </ul>
                 <div class="mobile-menu"><i class="fas fa-bars"></i></div>
             </nav>
@@ -30,29 +30,42 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h2>Learn Sign Language in <span>Roblox</span></h2>
-            <p>The most fun way to learn American Sign Language with friends in the metaverse!</p>
+            <h2>Learn <span>19 Sign Languages</span> in Roblox</h2>
+            <p>The most fun way to learn sign languages with friends in the metaverse!</p>
             <div class="hero-buttons">
                 <a href="https://www.roblox.com/games/" class="btn play-btn">
                     <i class="fab fa-roblox"></i> Play Now
                 </a>
-                <a href="#features" class="btn btn-secondary">
-                    <i class="fas fa-arrow-down"></i> Learn More
+                <a href="#languages" class="btn btn-secondary">
+                    <i class="fas fa-language"></i> View Languages
                 </a>
             </div>
             <div class="stats">
                 <div class="stat-item">
-                    <span class="stat-number" data-count="50">0</span>
+                    <span class="stat-number" data-count="19">0</span>
+                    <span class="stat-label">Sign Languages</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="25000">0</span>
                     <span class="stat-label">Active Players</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number" data-count="29">0</span>
-                    <span class="stat-label">ASL Signs</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-count="19">0</span>
+                    <span class="stat-number" data-count="100">0</span>
                     <span class="stat-label">Countries</span>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section class="languages" id="languages">
+        <div class="container">
+            <div class="section-title">
+                <h3>19 Supported Sign Languages</h3>
+                <p>We're building the most comprehensive sign language learning platform in Roblox</p>
+            </div>
+            <div class="languages-grid">
+                <!-- Populated by JavaScript -->
             </div>
         </div>
     </section>
@@ -65,7 +78,7 @@
                 <p>We make sign language learning accessible and fun for everyone</p>
             </div>
             <div class="features-grid">
-                <!-- Feature cards will be populated by JavaScript -->
+                <!-- Populated by JavaScript -->
             </div>
         </div>
     </section>
@@ -75,7 +88,7 @@
         <div class="container">
             <div class="preview-container">
                 <div class="preview-text">
-                    <h3>Experience ASL Like Never Before</h3>
+                    <h3>Experience Sign Languages Like Never Before</h3>
                     <p>Our Roblox game features innovative learning tools:</p>
                     <ul class="feature-list">
                         <li><i class="fas fa-check-circle"></i> Interactive 3D sign animations</li>
@@ -103,30 +116,66 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
+    <!-- Careers Section -->
+    <section class="careers" id="careers">
         <div class="container">
             <div class="section-title">
-                <h3>What Our Community Says</h3>
-                <p>Hear from players, parents, and educators</p>
+                <h3>Join Our Team</h3>
+                <p>Help us build the future of sign language education</p>
             </div>
-            <div class="testimonial-grid">
-                <!-- Testimonials will be populated by JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="newsletter">
-        <div class="container">
-            <div class="newsletter-box">
-                <h3>Stay Updated</h3>
-                <p>Get notified about new features, events, and learning resources</p>
-                <form id="newsletter-form">
-                    <input type="email" placeholder="Your email address" required>
-                    <button type="submit" class="btn">Subscribe</button>
-                </form>
-                <p class="form-note">We respect your privacy. Unsubscribe at any time.</p>
+            <div class="careers-content">
+                <div class="careers-text">
+                    <h4>We're Hiring!</h4>
+                    <p>SignsTogether is growing rapidly and we're looking for passionate individuals to join our team. We value diversity and especially encourage Deaf and hard-of-hearing applicants.</p>
+                    
+                    <div class="current-openings">
+                        <h5>Current Openings:</h5>
+                        <ul class="jobs-list">
+                            <!-- Populated by JavaScript -->
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="application-form">
+                    <h4>Apply Now</h4>
+                    <form id="job-application-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="position">Position</label>
+                            <select id="position" required>
+                                <option value="">Select a position</option>
+                                <!-- Populated by JavaScript -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="resume">Resume/CV</label>
+                            <input type="file" id="resume" accept=".pdf,.doc,.docx" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cover-letter">Cover Letter</label>
+                            <textarea id="cover-letter" rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="sign-language">Sign Language Proficiency</label>
+                            <select id="sign-language" multiple>
+                                <!-- Populated by JavaScript -->
+                            </select>
+                            <small>Hold Ctrl/Cmd to select multiple</small>
+                        </div>
+                        <button type="submit" class="btn">Submit Application</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -148,19 +197,19 @@
                 <div class="footer-column">
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
+                        <li><a href="#languages">Languages</a></li>
                         <li><a href="#features">Features</a></li>
                         <li><a href="#preview">Game Preview</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#careers">Careers</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h4>Resources</h4>
                     <ul class="footer-links">
-                        <li><a href="#">ASL Dictionary</a></li>
                         <li><a href="#">Learning Tips</a></li>
                         <li><a href="#">Deaf Culture</a></li>
                         <li><a href="#">Educator Resources</a></li>
+                        <li><a href="#">Accessibility Guide</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -168,7 +217,6 @@
                     <ul class="footer-links">
                         <li><a href="#">Terms of Service</a></li>
                         <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Accessibility</a></li>
                         <li><a href="#">Contact Us</a></li>
                     </ul>
                 </div>
@@ -178,6 +226,17 @@
             </div>
         </div>
     </footer>
+
+    <!-- Job Application Success Modal -->
+    <div class="modal" id="application-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <i class="fas fa-check-circle success-icon"></i>
+            <h3>Application Submitted!</h3>
+            <p>Thank you for applying to join the SignsTogether team. We'll review your application and get back to you soon.</p>
+            <button class="btn modal-close-btn">Close</button>
+        </div>
+    </div>
 
     <script src="main.js"></script>
 </body>
