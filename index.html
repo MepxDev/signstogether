@@ -22,6 +22,15 @@
                     <li><a href="#preview"><i class="fas fa-gamepad"></i> Game</a></li>
                     <li><a href="#careers"><i class="fas fa-briefcase"></i> Careers</a></li>
                 </ul>
+                <div class="auth-buttons">
+                    <a href="#" class="btn-roblox-connect" id="connect-roblox">
+                        <i class="fab fa-roblox"></i> Connect Roblox
+                    </a>
+                    <div class="user-profile" id="user-profile" style="display: none;">
+                        <img src="assets/default-avatar.jpg" alt="User Avatar" class="user-avatar">
+                        <span class="username">Username</span>
+                    </div>
+                </div>
                 <div class="mobile-menu"><i class="fas fa-bars"></i></div>
             </nav>
         </div>
@@ -64,7 +73,7 @@
                 <h3>19 Supported Sign Languages</h3>
                 <p>We're building the most comprehensive sign language learning platform in Roblox</p>
             </div>
-            <div class="languages-grid">
+            <div class="languages-grid" id="languages-grid">
                 <!-- Populated by JavaScript -->
             </div>
         </div>
@@ -77,7 +86,7 @@
                 <h3>Why Learn With SignsTogether?</h3>
                 <p>We make sign language learning accessible and fun for everyone</p>
             </div>
-            <div class="features-grid">
+            <div class="features-grid" id="features-grid">
                 <!-- Populated by JavaScript -->
             </div>
         </div>
@@ -130,7 +139,7 @@
                     
                     <div class="current-openings">
                         <h5>Current Openings:</h5>
-                        <ul class="jobs-list">
+                        <ul class="jobs-list" id="jobs-list">
                             <!-- Populated by JavaScript -->
                         </ul>
                     </div>
