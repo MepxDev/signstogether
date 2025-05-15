@@ -1,9 +1,11 @@
 // DOM Elements
 const mobileMenuBtn = document.querySelector('.mobile-menu');
 const navLinks = document.querySelector('.nav-links');
-const featureGrid = document.querySelector('.features-grid');
-const languagesGrid = document.querySelector('.languages-grid');
-const jobsList = document.querySelector('.jobs-list');
+const connectRobloxBtn = document.getElementById('connect-roblox');
+const userProfile = document.getElementById('user-profile');
+const languagesGrid = document.getElementById('languages-grid');
+const featuresGrid = document.getElementById('features-grid');
+const jobsList = document.getElementById('jobs-list');
 const positionSelect = document.getElementById('position');
 const signLanguageSelect = document.getElementById('sign-language');
 const jobApplicationForm = document.getElementById('job-application-form');
@@ -14,7 +16,7 @@ const gameImages = document.querySelectorAll('.game-carousel img');
 const prevBtn = document.querySelector('.carousel-prev');
 const nextBtn = document.querySelector('.carousel-next');
 
-// Sign Languages Data
+// Data
 const signLanguages = [
     { code: "ASL", name: "American Sign Language", description: "Used in the United States and parts of Canada" },
     { code: "BSL", name: "British Sign Language", description: "Used in the United Kingdom" },
@@ -36,7 +38,6 @@ const signLanguages = [
     { code: "SSL", name: "Swedish Sign Language", description: "Used in Sweden" }
 ];
 
-// Job Openings Data
 const jobOpenings = [
     {
         title: "ASL Content Developer",
@@ -64,7 +65,6 @@ const jobOpenings = [
     }
 ];
 
-// Features Data
 const features = [
     {
         icon: '<i class="fas fa-gamepad"></i>',
@@ -139,6 +139,18 @@ signLanguages.forEach(lang => {
     languagesGrid.appendChild(langCard);
 });
 
+// Populate Features
+features.forEach(feature => {
+    const featureCard = document.createElement('div');
+    featureCard.className = 'feature-card';
+    featureCard.innerHTML = `
+        <div class="feature-icon">${feature.icon}</div>
+        <h4>${feature.title}</h4>
+        <p>${feature.description}</p>
+    `;
+    featuresGrid.appendChild(featureCard);
+});
+
 // Populate Job Openings
 jobOpenings.forEach(job => {
     const jobItem = document.createElement('li');
@@ -164,16 +176,61 @@ signLanguages.forEach(lang => {
     signLanguageSelect.appendChild(option);
 });
 
-// Populate Features
-features.forEach(feature => {
-    const featureCard = document.createElement('div');
-    featureCard.className = 'feature-card';
-    featureCard.innerHTML = `
-        <div class="feature-icon">${feature.icon}</div>
-        <h4>${feature.title}</h4>
-        <p>${feature.description}</p>
-    `;
-    featureGrid.appendChild(featureCard);
+// Roblox Connection Functionality
+connectRobloxBtn.addEventListener('click', async (e) => {
+    e.preventDefault();
+    
+    try {
+        // Show loading state
+        connectRobloxBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Connecting...';
+        
+        // Simulate API call delay
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        
+        // Mock user data (replace with actual API response)
+        const mockUser = {
+            id: 123456789,
+            name: "RobloxPlayer123",
+            displayName: "SignsTogetherFan",
+            avatar: "https://tr.rbxcdn.com/df07f6d1b9b0c5d9a7d3a5a5a5a5a5a5/150/150/Avatar/Png"
+        };
+        
+        showUserProfile(mockUser);
+        localStorage.setItem('robloxUser', JSON.stringify(mockUser));
+        
+        console.log('Successfully connected Roblox account:', mockUser);
+    } catch (error) {
+        console.error('Error connecting Roblox account:', error);
+        connectRobloxBtn.innerHTML = '<i class="fab fa-roblox"></i> Connect Roblox';
+        alert('Failed to connect Roblox account. Please try again.');
+    }
+});
+
+// Show user profile after connection
+function showUserProfile(user) {
+    connectRobloxBtn.style.display = 'none';
+    userProfile.style.display = 'flex';
+    userProfile.querySelector('.username').textContent = user.displayName;
+    userProfile.querySelector('.user-avatar').src = user.avatar;
+}
+
+// Check for existing connection on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const storedUser = localStorage.getItem('robloxUser');
+    if (storedUser) {
+        const user = JSON.parse(storedUser);
+        showUserProfile(user);
+    }
+});
+
+// Logout functionality
+userProfile.addEventListener('click', () => {
+    if (confirm('Disconnect your Roblox account?')) {
+        localStorage.removeItem('robloxUser');
+        userProfile.style.display = 'none';
+        connectRobloxBtn.style.display = 'flex';
+        connectRobloxBtn.innerHTML = '<i class="fab fa-roblox"></i> Connect Roblox';
+    }
 });
 
 // Job Application Form Submission
