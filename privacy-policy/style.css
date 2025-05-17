@@ -1,31 +1,25 @@
-/* Base Styles */
+/* Privacy Policy Page Styles */
 :root {
-    --primary-color: #00a2ff;
-    --secondary-color: #ff6b00;
-    --dark-color: #2c3e50;
-    --light-color: #ecf0f1;
-    --text-color: #333;
-    --text-light: #777;
+    --primary: #00a2ff;
+    --secondary: #ff6b00;
+    --dark: #2c3e50;
+    --light: #ecf0f1;
     --white: #ffffff;
-    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s ease;
+    --gray: #777777;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
+body.privacy-policy {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: var(--text-color);
+    color: #333;
     background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
 }
 
-.container {
-    max-width: 1200px;
+.privacy-container {
+    max-width: 900px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -33,11 +27,20 @@ body {
 /* Header Styles */
 .privacy-header {
     background-color: var(--white);
-    box-shadow: var(--box-shadow);
+    box-shadow: var(--shadow);
     padding: 20px 0;
     position: sticky;
     top: 0;
     z-index: 100;
+}
+
+.privacy-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .privacy-header .logo {
@@ -52,26 +55,26 @@ body {
 }
 
 .privacy-header .logo h1 {
-    color: var(--dark-color);
+    color: var(--dark);
     font-size: 24px;
+    margin: 0;
 }
 
-.privacy-header .last-updated {
-    margin-top: 10px;
+.last-updated {
     font-size: 14px;
-    color: var(--text-light);
+    color: var(--gray);
 }
 
 /* Main Content */
-.privacy-container {
+.privacy-main {
     padding: 40px 0;
 }
 
-.privacy-container h1 {
+.privacy-main h1 {
     font-size: 36px;
-    margin-bottom: 30px;
-    color: var(--dark-color);
+    color: var(--dark);
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .privacy-section {
@@ -79,11 +82,11 @@ body {
     border-radius: 8px;
     padding: 25px;
     margin-bottom: 25px;
-    box-shadow: var(--box-shadow);
+    box-shadow: var(--shadow);
 }
 
 .privacy-section h2 {
-    color: var(--primary-color);
+    color: var(--primary);
     margin-bottom: 15px;
     display: flex;
     align-items: center;
@@ -108,13 +111,26 @@ body {
     margin-bottom: 8px;
 }
 
+address {
+    font-style: normal;
+}
+
+address a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+address a:hover {
+    text-decoration: underline;
+}
+
 /* Cookie Consent */
 .cookie-consent {
-    background: var(--light-color);
+    background: var(--light);
     padding: 15px;
     border-radius: 8px;
     margin-top: 20px;
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
@@ -127,15 +143,24 @@ body {
     min-width: 250px;
 }
 
+.cookie-consent a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.cookie-consent a:hover {
+    text-decoration: underline;
+}
+
 .btn {
-    background: var(--primary-color);
+    background: var(--primary);
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-weight: 600;
-    transition: var(--transition);
+    transition: all 0.3s ease;
 }
 
 .btn:hover {
@@ -145,10 +170,16 @@ body {
 
 /* Footer */
 .privacy-footer {
-    background: var(--dark-color);
+    background: var(--dark);
     color: var(--white);
     padding: 25px 0;
     text-align: center;
+}
+
+.privacy-footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .privacy-footer p {
@@ -165,25 +196,27 @@ body {
 .privacy-footer a {
     color: var(--white);
     text-decoration: none;
-    transition: var(--transition);
+    transition: all 0.3s ease;
 }
 
 .privacy-footer a:hover {
-    color: var(--primary-color);
+    color: var(--primary);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .privacy-container h1 {
+    .privacy-header .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .privacy-main h1 {
         font-size: 28px;
     }
     
     .privacy-section {
         padding: 20px;
-    }
-    
-    .privacy-header .logo h1 {
-        font-size: 20px;
     }
 }
 
@@ -196,5 +229,9 @@ body {
     .privacy-footer nav {
         flex-direction: column;
         gap: 10px;
+    }
+    
+    .privacy-header .logo h1 {
+        font-size: 20px;
     }
 }
