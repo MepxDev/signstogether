@@ -1,25 +1,31 @@
-/* Privacy Policy Page Styles */
+/* Base Styles */
 :root {
-    --primary: #00a2ff;
-    --secondary: #ff6b00;
-    --dark: #2c3e50;
-    --light: #ecf0f1;
+    --primary-color: #00a2ff;
+    --secondary-color: #ff6b00;
+    --dark-color: #2c3e50;
+    --light-color: #ecf0f1;
+    --text-color: #333;
+    --text-light: #777;
     --white: #ffffff;
-    --gray: #777777;
-    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
 }
 
-body.privacy-policy {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-.privacy-container {
-    max-width: 900px;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -27,20 +33,11 @@ body.privacy-policy {
 /* Header Styles */
 .privacy-header {
     background-color: var(--white);
-    box-shadow: var(--shadow);
+    box-shadow: var(--box-shadow);
     padding: 20px 0;
     position: sticky;
     top: 0;
     z-index: 100;
-}
-
-.privacy-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
 }
 
 .privacy-header .logo {
@@ -55,26 +52,26 @@ body.privacy-policy {
 }
 
 .privacy-header .logo h1 {
-    color: var(--dark);
+    color: var(--dark-color);
     font-size: 24px;
-    margin: 0;
 }
 
-.last-updated {
+.privacy-header .last-updated {
+    margin-top: 10px;
     font-size: 14px;
-    color: var(--gray);
+    color: var(--text-light);
 }
 
 /* Main Content */
-.privacy-main {
+.privacy-container {
     padding: 40px 0;
 }
 
-.privacy-main h1 {
+.privacy-container h1 {
     font-size: 36px;
-    color: var(--dark);
-    text-align: center;
     margin-bottom: 30px;
+    color: var(--dark-color);
+    text-align: center;
 }
 
 .privacy-section {
@@ -82,11 +79,11 @@ body.privacy-policy {
     border-radius: 8px;
     padding: 25px;
     margin-bottom: 25px;
-    box-shadow: var(--shadow);
+    box-shadow: var(--box-shadow);
 }
 
 .privacy-section h2 {
-    color: var(--primary);
+    color: var(--primary-color);
     margin-bottom: 15px;
     display: flex;
     align-items: center;
@@ -111,26 +108,13 @@ body.privacy-policy {
     margin-bottom: 8px;
 }
 
-address {
-    font-style: normal;
-}
-
-address a {
-    color: var(--primary);
-    text-decoration: none;
-}
-
-address a:hover {
-    text-decoration: underline;
-}
-
 /* Cookie Consent */
 .cookie-consent {
-    background: var(--light);
+    background: var(--light-color);
     padding: 15px;
     border-radius: 8px;
     margin-top: 20px;
-    display: none;
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
@@ -143,24 +127,15 @@ address a:hover {
     min-width: 250px;
 }
 
-.cookie-consent a {
-    color: var(--primary);
-    text-decoration: none;
-}
-
-.cookie-consent a:hover {
-    text-decoration: underline;
-}
-
 .btn {
-    background: var(--primary);
+    background: var(--primary-color);
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: var(--transition);
 }
 
 .btn:hover {
@@ -170,16 +145,10 @@ address a:hover {
 
 /* Footer */
 .privacy-footer {
-    background: var(--dark);
+    background: var(--dark-color);
     color: var(--white);
     padding: 25px 0;
     text-align: center;
-}
-
-.privacy-footer .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
 }
 
 .privacy-footer p {
@@ -196,27 +165,25 @@ address a:hover {
 .privacy-footer a {
     color: var(--white);
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: var(--transition);
 }
 
 .privacy-footer a:hover {
-    color: var(--primary);
+    color: var(--primary-color);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .privacy-header .container {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-    }
-    
-    .privacy-main h1 {
+    .privacy-container h1 {
         font-size: 28px;
     }
     
     .privacy-section {
         padding: 20px;
+    }
+    
+    .privacy-header .logo h1 {
+        font-size: 20px;
     }
 }
 
@@ -229,9 +196,5 @@ address a:hover {
     .privacy-footer nav {
         flex-direction: column;
         gap: 10px;
-    }
-    
-    .privacy-header .logo h1 {
-        font-size: 20px;
     }
 }
