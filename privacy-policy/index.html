@@ -4,11 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | SignsTogether</title>
-    <link rel="stylesheet" href="/privacy-policy/style.css">
+    <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="/assets/favicon.ico">
+    <style>
+        /* Privacy-specific styles that won't conflict with main site */
+        .privacy-header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .privacy-container {
+            padding: 40px 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .privacy-section {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .privacy-footer {
+            background: #2c3e50;
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+        }
+    </style>
 </head>
-<body>
+<body class="privacy-page">
     <header class="privacy-header">
         <div class="container">
             <a href="/" class="logo">
@@ -86,7 +118,7 @@
 
     <footer class="privacy-footer">
         <div class="container">
-            <p>&copy; 2023 SignsTogether. All rights reserved.</p>
+            <p>&copy; <span id="current-year">2023</span> SignsTogether. All rights reserved.</p>
             <nav>
                 <a href="/">Home</a>
                 <a href="/terms">Terms of Service</a>
@@ -95,6 +127,36 @@
         </div>
     </footer>
 
-    <script src="/privacy-policy/main.js"></script>
+    <script src="/main.js"></script>
+    <script>
+        // Privacy page specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            // Set last updated date
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('last-updated-date').textContent = 
+                new Date().toLocaleDateString('en-US', options);
+            
+            // Cookie consent
+            const cookieConsent = document.getElementById('cookie-consent');
+            const acceptCookiesBtn = document.getElementById('accept-cookies');
+            
+            if (!localStorage.getItem('cookiesAccepted')) {
+                cookieConsent.style.display = 'flex';
+            }
+            
+            acceptCookiesBtn.addEventListener('click', function() {
+                localStorage.setItem('cookiesAccepted', 'true');
+                cookieConsent.style.display = 'none';
+            });
+            
+            document.getElementById('cookie-settings').addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Cookie preferences would be configured here.');
+            });
+        });
+    </script>
 </body>
 </html>
